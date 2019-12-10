@@ -17,6 +17,14 @@ app.get('/location', (request, response) => {
   response.send(locationObj);
 })
 
+app.get('/weather', (request, response) => {
+  let daily = request.query.data;
+
+  let weatherObj = searchLatToLong(daily);
+
+  response.send(weatherObj);
+})
+
 function searchLatToLong(city){
   const geoData = require('./data/geo.json');
 
